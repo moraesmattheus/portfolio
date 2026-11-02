@@ -31,8 +31,9 @@
   NS.UI_STRINGS = {
     pt: {
       navHome: "Sobre",
+      navAbout: "Sobre Mim",
       navWorks: "Projetos",
-      navSites: "Sites & UI/UX",
+      navSites: "Referências & Sites",
       navSystems: "Apps & Sistemas",
       navVideos: "Vídeos & Ads",
       navContact: "Contato",
@@ -46,6 +47,11 @@
       kpi1Label: "sistemas e sites autorais",
       kpi2Label: "retorno real em e-commerce",
       kpi3Label: "Performance & WCAG AAA",
+
+      aboutKicker: "05 · Perfil, Setup Real & Trajetória Técnica",
+      aboutHeading: "Sobre mim <span class='serif-luxury'>&amp; minha carreira.</span>",
+      aboutDesc: "Conheça minha atuação unindo engenharia de software e visão de negócios, meu setup de desenvolvimento e explore o Grafo de Conhecimento com 54 nós interativos da minha carreira.",
+      aboutBio: "Graduado em <strong>Marketing Digital (UNICV)</strong> e graduando em <strong>Engenharia de Software (Instituto INFNET)</strong>. Desenho a experiência de usuário (UI/UX), escrevo a arquitetura de sistemas escaláveis, edito criativos de alto impacto em 60fps e gerencio campanhas de tráfego pago orientadas a faturamento real.",
 
       vortexKicker: "01 · Galeria Orbital 3D · Passe o mouse para desacelerar ou clique para abrir",
       vortexTitle: "Meus <span class='serif-vortex'>Projetos</span>",
@@ -78,7 +84,7 @@
       toggleCareerGraphClosed: "Explorar Trajetória, Formação INFNET & Grafo de Carreira (54 Nós) ↓",
       toggleCareerGraphOpen: "Recolher Grafo de Carreira & Trajetória ↑",
 
-      contactKicker: "05 · Atendimento Direto Comigo",
+      contactKicker: "06 · Atendimento Direto Comigo",
       contactHeading: "Vamos tirar seu projeto <span class='serif-luxury'>do papel?</span>",
       contactDesc: "Escolha o que você precisa e me chame direto no WhatsApp com o escopo já estruturado.",
       conciergeLabel: "Selecione a frente desejada:",
@@ -103,8 +109,9 @@
 
     en: {
       navHome: "About",
+      navAbout: "About Me",
       navWorks: "Projects",
-      navSites: "Web & UI/UX",
+      navSites: "Web References",
       navSystems: "Apps & Systems",
       navVideos: "Video & Ads",
       navContact: "Contact",
@@ -118,6 +125,11 @@
       kpi1Label: "custom systems & websites",
       kpi2Label: "verified e-commerce ROAS",
       kpi3Label: "Web Performance & WCAG AAA",
+
+      aboutKicker: "05 · Profile, Workstation & Career Path",
+      aboutHeading: "About me <span class='serif-luxury'>&amp; my career.</span>",
+      aboutDesc: "Discover my background bridging software engineering and business growth, my developer setup, and explore the interactive 54-node Knowledge Graph.",
+      aboutBio: "Bachelor in <strong>Digital Marketing (UNICV)</strong> and student of <strong>Software Engineering (INFNET Institute)</strong>. I craft UI/UX product design, build scalable full-stack code, edit 60fps high-converting videos and manage data-driven ad growth.",
 
       vortexKicker: "01 · 3D Orbital Gallery · Hover to slow down or click any screen",
       vortexTitle: "My <span class='serif-vortex'>Projects</span>",
@@ -150,7 +162,7 @@
       toggleCareerGraphClosed: "Explore Experience, INFNET Degree & Career Knowledge Graph (54 Nodes) ↓",
       toggleCareerGraphOpen: "Collapse Career Graph & Experience ↑",
 
-      contactKicker: "05 · Direct Contact",
+      contactKicker: "06 · Direct Contact",
       contactHeading: "Ready to bring your project <span class='serif-luxury'>to life?</span>",
       contactDesc: "Pick what you need and message me directly on WhatsApp with a structured brief.",
       conciergeLabel: "Select desired scope:",
@@ -175,8 +187,9 @@
 
     es: {
       navHome: "Sobre mí",
+      navAbout: "Sobre Mí",
       navWorks: "Proyectos",
-      navSites: "Sitios & UI/UX",
+      navSites: "Referencias & Sitios",
       navSystems: "Apps & Sistemas",
       navVideos: "Videos & Ads",
       navContact: "Contacto",
@@ -190,6 +203,11 @@
       kpi1Label: "sistemas y sitios propios",
       kpi2Label: "ROAS real en e-commerce",
       kpi3Label: "Rendimiento & WCAG AAA",
+
+      aboutKicker: "05 · Perfil, Setup Real & Trayectoria Técnica",
+      aboutHeading: "Sobre mí <span class='serif-luxury'>&amp; mi carrera.</span>",
+      aboutDesc: "Conozca mi trabajo uniendo ingeniería de software y visión de negocio, mi setup y explore el Grafo de Conocimiento interactivo de 54 nodos.",
+      aboutBio: "Graduado en <strong>Marketing Digital (UNICV)</strong> y cursando <strong>Ingeniería de Software (Instituto INFNET)</strong>. Diseño producto (UI/UX), programo software escalable, edito video en 60fps y opero tráfico pagado orientado a facturación real.",
 
       vortexKicker: "01 · Galería Orbital 3D · Pasa el cursor para pausar o haz clic",
       vortexTitle: "Mis <span class='serif-vortex'>Proyectos</span>",
@@ -222,7 +240,7 @@
       toggleCareerGraphClosed: "Explorar Trayectoria, Ingeniería INFNET y Grafo de Carrera (54 Nodos) ↓",
       toggleCareerGraphOpen: "Ocultar Grafo de Carrera y Trayectoria ↑",
 
-      contactKicker: "05 · Contacto Directo",
+      contactKicker: "06 · Contacto Directo",
       contactHeading: "¿Llevamos tu proyecto <span class='serif-luxury'>a producción?</span>",
       contactDesc: "Elige lo que necesitas y escríbeme directo por WhatsApp con el alcance listo.",
       conciergeLabel: "Selecciona el área deseada:",

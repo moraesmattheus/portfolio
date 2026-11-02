@@ -115,7 +115,9 @@
     }
 
     window.addEventListener("resize", resizeCanvas);
+    window.addEventListener("load", resizeCanvas);
     resizeCanvas();
+    setTimeout(resizeCanvas, 350);
 
     function screenToWorld(sx, sy) {
       return {
