@@ -1,0 +1,422 @@
+/* ==========================================================================
+   Arquivo: css/tokens.css
+   Data/Hora: 02/11/2026 00:22
+   O que é: Design System de Alto Padrão Internacional do portfólio de
+   Mattheus Moraes.
+   O que foi feito e finalidade de cada bloco:
+     1. Paleta Pure Pitch-Black (#000000) + Marfim Editorial (#FAF7F2) + Ouro
+        Champagne (#C9A97C) + Luz de Estúdio (#6366F1 / #38BDF8): Inspirada na
+        inspeção real de Visuvate, Marco Madonna, Dopamine Studio, Core-A Studios,
+        Aparelho Studio e no padrão Quiet Luxury de Site Vania.
+     2. Tipografia Editorial Mista: Contraste dramático entre Sans Geométrica
+        (Plus Jakarta Sans / Space Grotesk) e Serifa Clássica de Alto Contraste
+        (Cormorant Garamond / Instrument Serif) para percepção imediata de valor.
+     3. Curvas Cinemáticas e Variáveis do Grafo: Animações fluidas em 60fps.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   BLOCO 1: Variáveis Raiz de Cores, Superfícies, Tipografia e Movimento
+   Data/Hora: 02/11/2026 00:22
+   Finalidade: Garantir fundo #000000 puro para fusão perfeita do retrato de
+   estúdio de Mattheus Moraes e contraste de galeria internacional.
+   -------------------------------------------------------------------------- */
+:root {
+  color-scheme: dark;
+  /* Fundos de estúdio em preto absoluto para mesclagem perfeita da foto */
+  --bg-void: #000000;
+  --bg-primary: #040406;
+  --bg-elevated: #0A0B0F;
+  --bg-card: #090A0E;
+  --bg-card-hover: #0E1017;
+  --bg-glass: rgba(10, 11, 16, 0.72);
+
+  /* Linhas arquitetônicas sutis de 1px e bordas Neon (V4 - 02/11/2026 10:36) */
+  --border-hairline: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.14);
+  --border-gold: rgba(139, 92, 246, 0.52);
+  --border-studio: rgba(56, 189, 248, 0.48);
+
+  /* Tipografia com contraste de galeria */
+  --text-primary: #FAF7F2;
+  --text-pure: #FFFFFF;
+  --text-secondary: #C5C7D0;
+  --text-muted: #858999;
+  --text-dim: #525665;
+
+  /* Paleta Padrão V4: Azul Elétrico + Roxo/Violeta Neon (pedido em 02/11/2026 10:36) */
+  --accent-gold: #8B5CF6;
+  --accent-gold-light: #C4B5FD;
+  --accent-cyan: #38BDF8;
+  --accent-indigo: #6366F1;
+  --accent-violet: #A855F7;
+  --accent-emerald: #34D399;
+  --accent-lime: #D4FF33;
+
+  /* Variáveis dedicadas ao Brilho Neon e Tema Global Dinâmico (V6 - Troca Total de Cores em 02/11/2026 13:02) */
+  --neon-primary: #38BDF8;
+  --neon-secondary: #8B5CF6;
+  --neon-glow: rgba(56, 189, 248, 0.72);
+  --neon-soft: rgba(56, 189, 248, 0.16);
+  --neon-text: #E0F2FE;
+  --theme-on-primary: #040711;
+  --bg-tint: #06091A;
+  --surface-panel: rgba(8, 11, 22, 0.88);
+  --surface-elevated: #0E1326;
+  --surface-inner: #050711;
+  --theme-aura-1: rgba(56, 189, 248, 0.22);
+  --theme-aura-2: rgba(139, 92, 246, 0.24);
+  --theme-aura-3: rgba(99, 102, 241, 0.18);
+  --theme-grid: rgba(56, 189, 248, 0.06);
+  --theme-border: rgba(56, 189, 248, 0.34);
+
+  /* Cores do Career Knowledge Graph */
+  --node-center: #8B5CF6;
+  --node-company: #38BDF8;
+  --node-domain: #FB923C;
+  --node-skill: #F472B6;
+  --node-tool: #2DD4BF;
+  --node-project: #FACC15;
+  --node-education: #34D399;
+  --node-impact: #A78BFA;
+
+  /* Famílias tipográficas - Quicksand (Areia movediça por André Paglinawan) como fonte primária */
+  --font-sans: 'Quicksand', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-grotesk: 'Quicksand', 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Cormorant Garamond', 'Instrument Serif', Georgia, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+  /* Escala fluida monumental */
+  --fs-hero: clamp(2.6rem, 4.7vw, 4.65rem);
+  --fs-h2: clamp(2.05rem, 3.8vw, 3.55rem);
+  --fs-h3: clamp(1.25rem, 1.9vw, 1.65rem);
+  --fs-lead: clamp(1.02rem, 1.22vw, 1.18rem);
+
+  /* Geometria e transições */
+  --container-max: 1380px;
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow-studio:
+    0 30px 90px -20px rgba(0, 0, 0, 0.95),
+    0 0 0 1px rgba(255, 255, 255, 0.07);
+}
+
+/* --------------------------------------------------------------------------
+   BLOCO 2: Reset Global e Acabamento de Superfície
+   Data/Hora: 02/11/2026 00:22
+   Finalidade: Assegurar nitidez retiniana e rolagem suave sem barras brutas.
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 92px;
+  background-color: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-void);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--neon-soft);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-primary);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-secondary);
+}
+
+img,
+svg,
+canvas,
+video,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   BLOCO 3: Classes Editoriais de Contraste (Estilo Visuvate & Site Vania)
+   Data/Hora: 02/11/2026 00:22
+   Finalidade: Destacar palavras-chave de alto valor com serifa itálica nobre.
+   -------------------------------------------------------------------------- */
+.serif-luxury {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--accent-gold-light);
+  font-size: 1.12em;
+  line-height: 0.95;
+}
+
+.serif-white {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: #FFFFFF;
+  font-size: 1.1em;
+}
+
+::selection {
+  background: var(--neon-soft);
+  color: #ffffff;
+}
+
+.eyebrow-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--neon-primary);
+  padding: 7px 15px;
+  border-radius: var(--radius-pill);
+  background: var(--neon-soft);
+  border: 1px solid var(--theme-border);
+}
+
+.live-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--neon-primary);
+  box-shadow: 0 0 12px var(--neon-primary);
+  animation: studioPulse 2.4s infinite ease-in-out;
+}
+
+@keyframes studioPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.55; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s var(--ease-luxury), transform 0.85s var(--ease-luxury);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   BLOCO 4: Sistema de Design Tokens Neon Interativos ao Vivo (V6 - Troca 100%)
+   Data/Hora: 02/11/2026 13:02
+   O que é: Presets cromáticos completos acionáveis em tempo real pela aba
+   lateral "NEON · T".
+   Finalidade: Trocar 100% das cores de TODO o site (fundo CSS animado, superfícies
+   de cartões, modais, anéis 3D, constelação canvas, botões, textos de destaque
+   e scrollbars) sem restar nenhum tom azul/roxo fixo de outro tema.
+   -------------------------------------------------------------------------- */
+html[data-accent-theme="violet"] {
+  --accent-gold: #8B5CF6;
+  --accent-gold-light: #C4B5FD;
+  --accent-emerald: #38BDF8;
+  --border-gold: rgba(139, 92, 246, 0.52);
+  --border-studio: rgba(56, 189, 248, 0.48);
+  --neon-primary: #38BDF8;
+  --neon-secondary: #8B5CF6;
+  --neon-glow: rgba(56, 189, 248, 0.75);
+  --neon-soft: rgba(56, 189, 248, 0.16);
+  --neon-text: #E0F2FE;
+  --theme-on-primary: #040711;
+  --bg-tint: #06091A;
+  --surface-panel: rgba(8, 11, 22, 0.88);
+  --surface-elevated: #0E1326;
+  --surface-inner: #050711;
+  --theme-aura-1: rgba(56, 189, 248, 0.22);
+  --theme-aura-2: rgba(139, 92, 246, 0.24);
+  --theme-aura-3: rgba(99, 102, 241, 0.18);
+  --theme-grid: rgba(56, 189, 248, 0.06);
+  --theme-border: rgba(56, 189, 248, 0.34);
+}
+
+html[data-accent-theme="purple"] {
+  --accent-gold: #A855F7;
+  --accent-gold-light: #E9D5FF;
+  --accent-emerald: #C084FC;
+  --border-gold: rgba(192, 132, 252, 0.52);
+  --border-studio: rgba(168, 85, 247, 0.48);
+  --neon-primary: #C084FC;
+  --neon-secondary: #7C3AED;
+  --neon-glow: rgba(192, 132, 252, 0.80);
+  --neon-soft: rgba(192, 132, 252, 0.16);
+  --neon-text: #F3E8FF;
+  --theme-on-primary: #0B0314;
+  --bg-tint: #110522;
+  --surface-panel: rgba(14, 7, 26, 0.88);
+  --surface-elevated: #1A0D30;
+  --surface-inner: #090413;
+  --theme-aura-1: rgba(192, 132, 252, 0.24);
+  --theme-aura-2: rgba(124, 58, 237, 0.24);
+  --theme-aura-3: rgba(147, 51, 234, 0.18);
+  --theme-grid: rgba(192, 132, 252, 0.06);
+  --theme-border: rgba(192, 132, 252, 0.36);
+}
+
+html[data-accent-theme="cobalt"] {
+  --accent-gold: #0EA5E9;
+  --accent-gold-light: #BAE6FD;
+  --accent-emerald: #38BDF8;
+  --border-gold: rgba(56, 189, 248, 0.55);
+  --border-studio: rgba(56, 189, 248, 0.55);
+  --neon-primary: #38BDF8;
+  --neon-secondary: #0284C7;
+  --neon-glow: rgba(56, 189, 248, 0.85);
+  --neon-soft: rgba(56, 189, 248, 0.18);
+  --neon-text: #E0F2FE;
+  --theme-on-primary: #030914;
+  --bg-tint: #031121;
+  --surface-panel: rgba(6, 14, 26, 0.88);
+  --surface-elevated: #0B192E;
+  --surface-inner: #040A14;
+  --theme-aura-1: rgba(56, 189, 248, 0.26);
+  --theme-aura-2: rgba(14, 165, 233, 0.22);
+  --theme-aura-3: rgba(2, 132, 199, 0.18);
+  --theme-grid: rgba(56, 189, 248, 0.07);
+  --theme-border: rgba(56, 189, 248, 0.38);
+}
+
+html[data-accent-theme="lime"] {
+  --accent-gold: #84CC16;
+  --accent-gold-light: #E2FF85;
+  --accent-emerald: #C8FF2E;
+  --border-gold: rgba(200, 255, 46, 0.52);
+  --border-studio: rgba(200, 255, 46, 0.48);
+  --neon-primary: #C8FF2E;
+  --neon-secondary: #65A30D;
+  --neon-glow: rgba(200, 255, 46, 0.78);
+  --neon-soft: rgba(200, 255, 46, 0.15);
+  --neon-text: #ECFCCB;
+  --theme-on-primary: #080D02;
+  --bg-tint: #091204;
+  --surface-panel: rgba(10, 15, 7, 0.88);
+  --surface-elevated: #111A0B;
+  --surface-inner: #060A04;
+  --theme-aura-1: rgba(200, 255, 46, 0.21);
+  --theme-aura-2: rgba(132, 204, 22, 0.19);
+  --theme-aura-3: rgba(77, 124, 15, 0.16);
+  --theme-grid: rgba(200, 255, 46, 0.055);
+  --theme-border: rgba(200, 255, 46, 0.34);
+}
+
+html[data-accent-theme="gold"] {
+  --accent-gold: #C9A97C;
+  --accent-gold-light: #F3E3C8;
+  --accent-emerald: #E5CFA9;
+  --border-gold: rgba(201, 169, 124, 0.52);
+  --border-studio: rgba(229, 207, 169, 0.45);
+  --neon-primary: #E5CFA9;
+  --neon-secondary: #B68D56;
+  --neon-glow: rgba(229, 207, 169, 0.75);
+  --neon-soft: rgba(201, 169, 124, 0.16);
+  --neon-text: #FEF3C7;
+  --theme-on-primary: #140D06;
+  --bg-tint: #140D06;
+  --surface-panel: rgba(16, 12, 8, 0.88);
+  --surface-elevated: #1C140D;
+  --surface-inner: #0B0805;
+  --theme-aura-1: rgba(229, 207, 169, 0.22);
+  --theme-aura-2: rgba(182, 141, 86, 0.21);
+  --theme-aura-3: rgba(120, 86, 44, 0.16);
+  --theme-grid: rgba(229, 207, 169, 0.055);
+  --theme-border: rgba(229, 207, 169, 0.34);
+}
+
+html[data-accent-theme="mono"] {
+  --accent-gold: #A1A1AA;
+  --accent-gold-light: #FFFFFF;
+  --accent-emerald: #FFFFFF;
+  --border-gold: rgba(255, 255, 255, 0.48);
+  --border-studio: rgba(255, 255, 255, 0.42);
+  --neon-primary: #FFFFFF;
+  --neon-secondary: #A1A1AA;
+  --neon-glow: rgba(255, 255, 255, 0.75);
+  --neon-soft: rgba(255, 255, 255, 0.13);
+  --neon-text: #FFFFFF;
+  --theme-on-primary: #050507;
+  --bg-tint: #0B0B0D;
+  --surface-panel: rgba(12, 12, 14, 0.88);
+  --surface-elevated: #17171B;
+  --surface-inner: #08080A;
+  --theme-aura-1: rgba(255, 255, 255, 0.15);
+  --theme-aura-2: rgba(161, 161, 170, 0.14);
+  --theme-aura-3: rgba(113, 113, 122, 0.12);
+  --theme-grid: rgba(255, 255, 255, 0.05);
+  --theme-border: rgba(255, 255, 255, 0.32);
+}
+
+html[data-corner-style="sharp"] {
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+}

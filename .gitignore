@@ -13,6 +13,7 @@
 *.pem
 *.key
 *token*
+!css/tokens.css
 *secret*
 vault.bin
 
