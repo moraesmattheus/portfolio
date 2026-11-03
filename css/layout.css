@@ -552,9 +552,9 @@ section {
 
 /* --------------------------------------------------------------------------
    BLOCO 6: Palco de Apresentação de Mattheus Moraes no Setup Real
-   Data/Hora: 02/11/2026 17:35
-   Finalidade: Exibir a foto autêntica 100% inteira (1024x768 - 4:3) com os
-   monitores, código, caneca BMW, estante e iluminação de estúdio sem cortes.
+   Data/Hora: 03/11/2026 20:14
+   Finalidade: Exibir o novo retrato autêntico no setup com monitores, código,
+   planta e iluminação quente de estúdio em proporção vertical 3:4 sem cortes.
    -------------------------------------------------------------------------- */
 .portrait-stage {
   position: relative;
@@ -563,7 +563,7 @@ section {
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 580px;
+  max-width: 470px;
   margin: 0 auto;
   perspective: 1100px;
 }
@@ -571,8 +571,8 @@ section {
 /* Halo volumétrico suave e luminoso atrás da moldura */
 .portrait-aura {
   position: absolute;
-  width: 520px;
-  height: 420px;
+  width: 450px;
+  height: 520px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
@@ -589,12 +589,12 @@ section {
   display: none !important;
 }
 
-/* Moldura de luxo 4:3 com vidro glassmorphism e acabamento de galeria */
+/* Moldura de luxo 3:4 com vidro glassmorphism e acabamento de galeria */
 .portrait-figure {
   position: relative;
   z-index: 2;
   width: 100%;
-  aspect-ratio: 4 / 3; /* Proporção exata da foto 1024x768 enviada */
+  aspect-ratio: 3 / 4; /* Proporção exata da foto 768x1024 enviada */
   display: block;
   border-radius: 22px;
   overflow: hidden;
