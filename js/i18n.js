@@ -535,7 +535,10 @@
       tabLabel: "04 · Site Personalizado & Conversão",
       badge: "Padrão Conversão, Dados & Tráfego",
       refName: "Referência: Hub Martech & Inteligência de Tráfego",
-      primaryImg: "assets/img/conecta-dados-tela.png",
+      /* Imagem com desfoque de privacidade aplicado
+         Data/Hora: 03/11/2026 23:51 BRT
+      */
+      primaryImg: "assets/img/conecta-dados-tela.png?v=13",
       secondaryImg: "",
       secondaryLabel: "",
       liveUrl: "",
@@ -554,36 +557,44 @@
       tabLabel: "05 · Landing Page Alta Conversão",
       badge: "Padrão Escala & Performance 60fps",
       refName: "Referência: Landing Page Cinematográfica & Performance",
-      primaryImg: "assets/img/conecta-dados-tela.png",
+      /* Nova Landing Page de Alta Conversão exclusiva sem repeticao
+         Data/Hora: 03/11/2026 23:51 BRT
+         Finalidade: Mostrar landing page de conversao real no estilo autoral de Mattheus
+      */
+      primaryImg: "assets/img/landing-page-alta-conversao.png?v=13",
       secondaryImg: "",
       secondaryLabel: "",
       liveUrl: "",
-      idealFor: "Lançamentos de infoprodutos, captação de leads B2B, infoprodutores e clínicas de alto ticket.",
-      uxSummary: "Storytelling visual progressivo com microinterações em 60fps, gatilhos de prova social em tempo real e CTA flutuante inteligente.",
+      idealFor: "Lançamentos, captação de leads de alto valor, infoprodutores, clínicas e negócios que escalam tráfego pago.",
+      uxSummary: "Storytelling visual progressivo sem distrações, carregamento atômico (<0.6s), gatilhos de prova social em tempo real e formulário/WhatsApp em 2 cliques.",
       techSpecs: [
-        "Carregamento atômico sem dependências pesadas, LCP < 0.6s e Cumulative Layout Shift (CLS) = 0",
+        "Carregamento ultrarrápido (LCP < 0.6s e CLS = 0) maximizando o Índice de Qualidade no Google e Meta Ads",
         "Rastreamento duplo de conversão: Meta Conversions API (CAPI) server-side + Google Tag Manager",
-        "Proteção contra cliques inválidos de bots e formulários dinâmicos com validação de telefone via WhatsApp API",
-        "Design responsivo com tipografia fluida via clamp() e suporte nativo a modo escuro"
+        "Copywriting persuasivo com microinterações em 60fps e arquitetura visual anti-fricção",
+        "Design responsivo dark luxury com tipografia fluida via clamp() e alvos de toque otimizados"
       ],
       conciergeTopic: "Site 100% Personalizado Sob Medida"
     },
     {
       id: "pwa",
-      tabLabel: "06 · Web App PWA & Membros",
-      badge: "Padrão Plataforma Híbrida & Offline",
-      refName: "Referência: Web App Instalável & Área Privativa",
-      primaryImg: "assets/img/easycode.png",
+      tabLabel: "06 · Web App PWA & Gestão",
+      badge: "Padrão PWA Instalável & Offline-First",
+      refName: "Referência: CRM da Manu (Barbearia & Gestão Comercial)",
+      /* Novo PWA Real (CRM da Manu) em substituicao ao EasyCode
+         Data/Hora: 03/11/2026 23:51 BRT
+         Finalidade: Exibir o PWA instalavel offline com WhatsApp e KPIs de balcao
+      */
+      primaryImg: "assets/img/crm-manu-pwa-tela.png?v=13",
       secondaryImg: "",
       secondaryLabel: "",
-      liveUrl: "https://easy-code.tech/",
-      idealFor: "Plataformas de cursos, comunidades pagas, ferramentas operacionais de equipes de campo e portais de clientes.",
-      uxSummary: "Experiência idêntica a aplicativo nativo sem burocracia de loja: adiciona à tela inicial com 1 clique e funciona offline.",
+      liveUrl: "https://crm-barbearia.pages.dev",
+      idealFor: "Negócios locais, barbearias, clínicas, prestadores de serviços e operações que necessitam de agilidade no celular sem burocracia de app store.",
+      uxSummary: "Instalação instantânea com 1 toque no Safari e Chrome (Adicionar à Tela de Início), funcionamento 100% offline, balcão de atendimentos e reativação via WhatsApp de clientes inativos.",
       techSpecs: [
-        "Service Worker com cache inteligente e sincronização em segundo plano via Background Sync API",
-        "Autenticação sem senha via Magic Link e tokens JWT armazenados de forma segura",
-        "Banco de dados local via IndexedDB para persistência completa mesmo sem conexão com a internet",
-        "Manifesto PWA com badges dinâmicos, tema adaptativo e suporte a atalhos rápidos de navegação"
+        "PWA instalável com Service Worker, cache inteligente e funcionamento offline completo",
+        "Construído em React 19 + TypeScript + Tailwind CSS v4 + Vite com deploy global na Cloudflare Pages",
+        "Painel geral com 6 KPIs em tempo real (Faturamento, Custos, Lucro Líquido, Cortesias, Tempo e Leads)",
+        "Módulo de reativação inteligente com disparo direto para o WhatsApp de clientes inativos (>30 dias)"
       ],
       conciergeTopic: "Aplicativo Mobile ou Desktop"
     }

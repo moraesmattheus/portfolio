@@ -483,7 +483,11 @@ window.MattheusPortfolio.EXPERIENCES = [
     type: "Formação Acadêmica",
     bullets: [
       "Formação orientada a projetos reais em engenharia de software, arquitetura full-stack, Python, computação em nuvem e cibersegurança.",
-      "Autor do Infnet Super App (React Native + Expo + RAG) criado para otimizar a rotina acadêmica dos próprios alunos."
+      /* Ajuste de status: projeto em desenvolvimento/estudos
+         Data/Hora: 03/11/2026 23:17 BRT
+         Finalidade: Refletir status real de prototipo de estudos em andamento
+      */
+      "Desenvolvimento de protótipos de engenharia de software (React Native + Expo + IA) focados no ecossistema e rotina acadêmica de estudos."
     ]
   },
   {
@@ -611,7 +615,7 @@ window.MattheusPortfolio.GRAPH_DATA = {
     { id: "pr_hubhom", label: "Hub Corporativo & BI", group: "project", projectId: "hub-hom", radius: 13, period: "2026 • Produção", desc: "Portal corporativo de 23 telas e dashboard executivo multicanal na Cloudflare." },
     { id: "pr_vania", label: "Acervo Quiet Luxury", group: "project", projectId: "site-vania", radius: 12, period: "2026 • Ativo", desc: "Ecossistema imobiliário Quiet Luxury com camada Off-Market NDA e admin Drag & Drop." },
     { id: "pr_radar", label: "Radar & Busca Vagas", group: "project", projectId: "radar-vagas", radius: 12, period: "2026 • Em Uso", desc: "Robô scraper em 10 sites + App mobile com score ATS 0-100 e Gemini serverless." },
-    { id: "pr_infnet", label: "Super App Acadêmico", group: "project", projectId: "infnet-app", radius: 11, period: "2026 • Open Source", desc: "App mobile universitário com Zoom, alertas de entregas e manual acadêmico via RAG." },
+    { id: "pr_infnet", label: "Super App Acadêmico", group: "project", projectId: "infnet-app", radius: 11, period: "2026 • Em Projeto", desc: "Protótipo acadêmico mobile em desenvolvimento com alertas de aulas, entregas e IA de suporte a estudos." },
     { id: "pr_ominivix", label: "Ominivix TDAH + IA", group: "project", projectId: "ominivix", radius: 11, period: "2026", desc: "Extensão de foco profundo + transcrição e diarização automática de reuniões no Notion." },
     { id: "pr_pastas", label: "Pastas na Barra (Win11)", group: "project", projectId: "pastas-barra", radius: 11, period: "2026 • Apache-2.0", desc: "Utilitário desktop nativo em C#/WPF para pastas na barra de tarefas do Windows 11." },
     { id: "pr_borda", label: "App Borda (59 KB)", group: "project", projectId: "borda", radius: 10, period: "2026 • Kotlin", desc: "App Android nativo ultraleve para alertas luminosos personalizados por contato." },
