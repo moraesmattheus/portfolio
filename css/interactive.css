@@ -2744,7 +2744,103 @@ body:has(.modal-backdrop.is-open) .custom-cursor-pill {
   font-weight: 700;
 }
 
-/* 2. Barra de Abas Minimalista: APENAS AS LETRAS EM NEON + Filete Inferior */
+/* 2. Barra de Abas Minimalista: APENAS AS LETRAS EM NEON + Filete Inferior
+   + Botões 3D Flutuantes em Vidro (Glassmorphism)
+   1) O que é: Componente de wrapper flex (.tabs-nav-wrapper) e botões táteis circulares (.tab-nav-arrow) com estética glassmorphism 3D.
+   2) Quando foi feito: 04/11/2026 12:40 BRT.
+   3) O que foi feito e finalidade: Criação de botões discretos e polidos com backdrop-filter blur, bordas luminosas, sombras em relevo tátil 3D e estados de hover/active com microinterações para avançar e voltar entre as abas.
+*/
+.tabs-nav-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.tabs-nav-wrapper .clean-neon-tabs {
+  flex: 1;
+  margin-bottom: 0;
+  padding-bottom: 4px;
+  scroll-behavior: smooth;
+}
+
+.tab-nav-arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: radial-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(15, 23, 42, 0.65) 100%);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.35),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 0, 0, 0.25);
+  color: rgba(240, 246, 252, 0.85);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+              background 0.22s ease,
+              border-color 0.22s ease,
+              box-shadow 0.24s ease,
+              color 0.22s ease;
+  user-select: none;
+  z-index: 2;
+}
+
+.tab-nav-arrow svg {
+  width: 15px;
+  height: 15px;
+  stroke-width: 2.4;
+  transition: transform 0.2s ease;
+}
+
+.tab-nav-arrow:hover {
+  transform: translateY(-2px) scale(1.08);
+  background: radial-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(30, 41, 59, 0.8) 100%);
+  border-color: rgba(56, 189, 248, 0.55);
+  color: var(--neon-primary, #38BDF8);
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.65),
+    0 0 18px var(--neon-glow, rgba(56, 189, 248, 0.35)),
+    inset 0 1px 2px rgba(255, 255, 255, 0.55);
+}
+
+.tab-nav-arrow.tab-nav-prev:hover svg {
+  transform: translateX(-1.5px);
+}
+
+.tab-nav-arrow.tab-nav-next:hover svg {
+  transform: translateX(1.5px);
+}
+
+.tab-nav-arrow:active {
+  transform: translateY(1px) scale(0.94);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.5),
+    inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 680px) {
+  .tabs-nav-wrapper {
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .tab-nav-arrow {
+    width: 32px;
+    height: 32px;
+  }
+  .tab-nav-arrow svg {
+    width: 13px;
+    height: 13px;
+  }
+}
+
 .clean-neon-tabs {
   display: flex;
   flex-wrap: nowrap;

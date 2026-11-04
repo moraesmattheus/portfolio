@@ -70,6 +70,42 @@
           NS.selectSitePattern(idx);
         });
       });
+
+      /* Centralização suave da aba ativa
+         1) O que é: Auto-scroll horizontal para centralizar o botão da aba selecionada.
+         2) Quando foi feito: 04/11/2026 12:44 BRT.
+         3) O que foi feito e finalidade: Executa scrollIntoView com comportamento suave e alinhamento central para manter a aba em evidência visual em qualquer resolução de tela (desktop, tablet e mobile).
+      */
+      const activeTabEl = tabsWrap.querySelector('.clean-neon-tab.active');
+      if (activeTabEl && typeof activeTabEl.scrollIntoView === 'function') {
+        activeTabEl.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    }
+
+    /* Botões 3D flutuantes em vidro (glassmorphism) para navegação de abas
+       1) O que é: Listeners de clique para os botões táteis laterais (#sitePatternPrevBtn e #sitePatternNextBtn).
+       2) Quando foi feito: 04/11/2026 12:44 BRT.
+       3) O que foi feito e finalidade: Captura o clique do usuário, reproduz o efeito sonoro de feedback da interface, calcula o índice anterior/próximo de forma circular contínua e invoca selectSitePattern(newIdx).
+    */
+    const prevBtn = document.getElementById("sitePatternPrevBtn");
+    const nextBtn = document.getElementById("sitePatternNextBtn");
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        if (NS.sfx) NS.sfx.click();
+        const total = NS.SITE_PATTERNS.length;
+        const newIdx = (activeIdx - 1 + total) % total;
+        NS.selectSitePattern(newIdx);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        if (NS.sfx) NS.sfx.click();
+        const total = NS.SITE_PATTERNS.length;
+        const newIdx = (activeIdx + 1) % total;
+        NS.selectSitePattern(newIdx);
+      });
     }
 
     NS.selectSitePattern = function (idx) {
