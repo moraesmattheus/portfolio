@@ -123,7 +123,12 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 92px;
-  background-color: var(--bg-void);
+  /* Fundo escuro garantido e protecao contra modo claro do navegador
+     Data/Hora: 03/11/2026 21:12 BRT
+     Finalidade: Evitar tela branca em dispositivos moveis e garantir contraste escuro
+  */
+  background-color: #030407 !important;
+  color-scheme: dark;
   color: var(--text-primary);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -131,7 +136,11 @@ html {
 }
 
 body {
-  background-color: var(--bg-void);
+  /* Fundo escuro base continuo
+     Data/Hora: 03/11/2026 21:12 BRT
+  */
+  background-color: #030407 !important;
+  color-scheme: dark;
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
@@ -222,15 +231,17 @@ a {
   align-items: center;
   gap: 10px;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: clamp(0.66rem, 2vw, 0.72rem);
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--neon-primary);
   padding: 7px 15px;
   border-radius: var(--radius-pill);
   background: var(--neon-soft);
   border: 1px solid var(--theme-border);
+  line-height: 1.4;
+  max-width: 100%;
 }
 
 .live-pulse-dot {

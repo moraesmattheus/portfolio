@@ -642,18 +642,18 @@ section {
   filter: contrast(1.08) saturate(1.06) brightness(1.06);
 }
 
-/* Assinatura tipográfica minimalista na base do retrato */
+/* Assinatura tipográfica minimalista logo abaixo do retrato (sem cobrir a foto) */
 .portrait-nameplate {
-  position: absolute;
-  bottom: 12px;
-  left: 36px;
-  right: 36px;
+  position: relative;
+  margin-top: 14px;
+  width: 100%;
   z-index: 4;
   padding: 12px 18px;
   border-radius: 14px;
-  background: rgba(6, 7, 10, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(10, 12, 18, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -720,6 +720,25 @@ section {
   grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
+}
+
+.proof-strip-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 680px) {
+  .proof-strip-3 {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .proof-strip-3 .proof-item {
+    border-right: none;
+    border-bottom: 1px solid var(--border-hairline);
+    padding: 18px 12px;
+  }
+  .proof-strip-3 .proof-item:last-child {
+    border-bottom: none;
+  }
 }
 
 .proof-item {
@@ -2856,13 +2875,44 @@ section {
     grid-template-columns: 1fr;
   }
   .vortex-stage-3d {
-    height: 410px;
+    /* Altura otimizada para palco orbital no mobile
+       Data/Hora: 03/11/2026 21:14 BRT
+       Finalidade: Proporcionar espaco vertical suficiente para os cartoes orbitarem sem cobrir o titulo
+    */
+    height: 430px;
   }
   .vortex-card-3d {
-    width: 175px;
-    height: 124px;
-    margin-left: -87px;
-    margin-top: -62px;
+    /* Dimensoes harmonicas e leves para telas touch
+       Data/Hora: 03/11/2026 21:14 BRT
+    */
+    width: 140px;
+    height: 100px;
+    margin-left: -70px;
+    margin-top: -50px;
+  }
+  .vortex-card-3d .vortex-card-top {
+    padding: 6px 8px;
+  }
+  .vortex-card-3d .vortex-card-pill {
+    font-size: 0.62rem;
+    padding: 2px 6px;
+  }
+  .vortex-card-3d .vortex-card-bottom {
+    padding: 6px 8px;
+  }
+  .vortex-card-3d .vortex-card-bottom strong {
+    font-size: 0.76rem;
+  }
+  .vortex-card-3d .vortex-card-bottom span {
+    display: none;
+  }
+  .vortex-center-heading {
+    /* Titulo central perfeitamente legivel e proporcional no mobile sem tocar nos cartoes laterais
+       Data/Hora: 03/11/2026 21:20 BRT
+    */
+    font-size: clamp(1.95rem, 6.6vw, 2.6rem) !important;
+    padding: 6px 14px !important;
+    letter-spacing: -0.03em !important;
   }
   .dopamine-media-stage {
     min-height: auto;
@@ -3242,15 +3292,18 @@ section {
   to { transform: rotate(360deg); }
 }
 
-/* 5. Vórtice 3D "Minhas Obras" • Título Único Limpo, Sólido e Sempre no Topo (z-index: 5) */
+/* 5. Vórtice 3D "Meus Projetos" • Título Único Limpo, Sólido e Sempre no Topo (z-index: 250)
+   Data/Hora: 03/11/2026 21:14 BRT
+   Finalidade: z-index 250 para ficar sempre acima das camadas 3D (que vao ate z-index 200)
+*/
 .vortex-center-heading {
   position: relative;
-  z-index: 5 !important;
+  z-index: 250 !important;
   font-weight: 800;
   color: #FFFFFF !important;
   padding: 12px 28px;
   border-radius: 999px;
-  background: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.28) 55%, transparent 82%);
+  background: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.35) 55%, transparent 82%);
   text-shadow:
     0 10px 38px rgba(0, 0, 0, 0.98),
     0 2px 12px rgba(0, 0, 0, 0.95),

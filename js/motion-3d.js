@@ -1185,21 +1185,32 @@
         }
 
         const stRect = stage.getBoundingClientRect();
-        const rx = Math.min(545, stRect.width * 0.43);
-        const corridorHalfY = Math.min(235, Math.max(152, stRect.height * 0.37));
+        /* Responsividade refinada para o vortice 3D no mobile
+           Data/Hora: 03/11/2026 21:16 BRT
+           Finalidade: Evitar amontoamento de cartoes sobre o titulo "Meus Projetos" em celulares
+        */
+        const isMobile = stRect.width <= 680;
+        const rx = isMobile ? Math.min(210, stRect.width * 0.44) : Math.min(545, stRect.width * 0.43);
+        const corridorHalfY = isMobile
+          ? Math.max(165, stRect.height * 0.40)
+          : Math.min(235, Math.max(152, stRect.height * 0.37));
         const total = cardEls.length;
 
         cardEls.forEach(function (obj, idx) {
           const ang = orbitPhase + (idx / total) * Math.PI * 2;
-          /* Corredor elíptico aberto: arcos passam acima e abaixo de "Minhas Obras" sem apagar o título */
+          /* Corredor eliptico aberto e limpo: arcos passam acima e abaixo de "Meus Projetos" */
           const rawX = Math.cos(ang) * rx;
           const depthZ = Math.sin(ang); // -1 (arco superior traseiro) -> +1 (arco inferior frontal)
-          const rawY = -rawX * 0.16 + depthZ * corridorHalfY;
+          /* No mobile, inclinacao de 0.22 afasta com folga os cartoes laterais do texto central */
+          const tiltX = isMobile ? 0.22 : 0.16;
+          const rawY = -rawX * tiltX + depthZ * corridorHalfY;
 
-          const scale = 0.56 + (depthZ + 1) * 0.22; // 0.56 atrás -> 1.00 na frente
-          const rotY = -Math.cos(ang) * 24;
-          const rotZ = -5 + Math.sin(ang) * 5;
-          const opacity = 0.44 + (depthZ + 1) * 0.28;
+          const baseScale = isMobile ? 0.50 : 0.56;
+          const scaleRange = isMobile ? 0.18 : 0.22;
+          const scale = baseScale + (depthZ + 1) * scaleRange;
+          const rotY = -Math.cos(ang) * (isMobile ? 18 : 24);
+          const rotZ = isMobile ? 0 : (-5 + Math.sin(ang) * 5);
+          const opacity = isMobile ? (0.52 + (depthZ + 1) * 0.24) : (0.44 + (depthZ + 1) * 0.28);
 
           const wantLayer = depthZ >= 0.05 ? "front" : "back";
           if (obj.currentLayer !== wantLayer) {

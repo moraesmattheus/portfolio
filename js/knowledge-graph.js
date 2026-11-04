@@ -51,11 +51,30 @@
       };
     }).filter(function (l) { return l.source && l.target; });
 
+    /* ----------------------------------------------------------------------
+       BLOCO 1: Inicializacao Geometrica e Estado do Grafo
+       Data/Hora: 03/11/2026 21:20 BRT
+       Finalidade: Distribuir os clusters com separacao angular calculada
+       e 4 camadas radiais com alternancia de rotulos para zero sobreposicao.
+       ---------------------------------------------------------------------- */
+    const HUB_ANGLES = {
+      hub_company: -Math.PI / 2,                // Topo (-90°)
+      hub_domain:  -Math.PI / 2 + 0.95,         // Topo-Direita (-35°)
+      hub_skill:   -Math.PI / 2 + 1.85,         // Direita (+16°)
+      hub_tool:    -Math.PI / 2 + 2.75,         // Baixo-Direita (+67°)
+      hub_project: -Math.PI / 2 + 3.90,         // Baixo-Esquerda (+133°)
+      hub_edu:     -Math.PI / 2 + 4.95,         // Esquerda (+193°)
+      hub_impact:  -Math.PI / 2 + 5.65          // Topo-Esquerda (+233°)
+    };
+
     const hubs = nodes.filter(function (n) { return n.isHub; });
-    const hubRadius = 175;
+    const hubRadius = 185;
 
     hubs.forEach(function (hub, idx) {
-      const angle = (idx / hubs.length) * Math.PI * 2 - Math.PI / 2;
+      const angle = HUB_ANGLES[hub.id] !== undefined
+        ? HUB_ANGLES[hub.id]
+        : (idx / hubs.length) * Math.PI * 2 - Math.PI / 2;
+
       hub.homeX = Math.cos(angle) * hubRadius;
       hub.homeY = Math.sin(angle) * hubRadius;
       hub.x = hub.homeX;
@@ -65,17 +84,25 @@
         return !c.isHub && c.id !== "mattheus" && c.group === hub.group;
       });
 
-      const fanSpread = Math.min(1.42, 0.25 * children.length);
+      const maxSpread = hub.id === "hub_project" ? 1.15 : (hub.id === "hub_tool" ? 0.98 : (hub.id === "hub_company" ? 0.94 : 0.82));
+      const fanSpread = Math.min(maxSpread, 0.20 * children.length);
+
       children.forEach(function (child, cIdx) {
         const offset = children.length === 1
           ? 0
           : ((cIdx / (children.length - 1)) - 0.5) * fanSpread;
-        const ringDist = 285 + (cIdx % 3) * 44;
+
+        const ringTier = cIdx % 4;
+        const ringDist = 275 + ringTier * 52;
         const childAngle = angle + offset;
+
         child.homeX = Math.cos(childAngle) * ringDist;
         child.homeY = Math.sin(childAngle) * ringDist;
         child.x = child.homeX;
         child.y = child.homeY;
+
+        /* Alternancia de rotulo: par acima, impar abaixo para nunca colidir */
+        child.labelPos = (cIdx % 2 === 0 ? "top" : "bottom");
       });
     });
 
@@ -350,6 +377,17 @@
             if (n !== draggedNode && n.id !== "mattheus") { n.vx += ux * push; n.vy += uy * push; }
             if (m !== draggedNode && m.id !== "mattheus") { m.vx -= ux * push; m.vy -= uy * push; }
           }
+
+          /* Repulsao dinamica anti-sobreposicao de rotulos horizontais
+             Data/Hora: 03/11/2026 21:22 BRT
+             Finalidade: Garantir espaco para textos largos sem encavalar
+          */
+          const approxW = (n.label ? n.label.length * 5.4 : 36) + (m.label ? m.label.length * 5.4 : 36);
+          if (Math.abs(dy) < 22 && Math.abs(dx) < approxW * 0.50 + 10) {
+            const pushX = (approxW * 0.50 + 10 - Math.abs(dx)) * 0.025 * (dx >= 0 ? 1 : -1);
+            if (n !== draggedNode && n.id !== "mattheus") { n.vx += pushX; }
+            if (m !== draggedNode && m.id !== "mattheus") { m.vx -= pushX; }
+          }
         }
 
         n.vx *= 0.82;
@@ -452,9 +490,17 @@
         const fontSize = n.id === "mattheus" ? 13 : (n.isHub ? 11.4 : 10.2);
         ctx.font = (n.isHub || n.id === "mattheus" ? "700 " : "500 ") + fontSize + "px 'Plus Jakarta Sans', sans-serif";
         ctx.textAlign = "center";
-        ctx.textBaseline = "bottom";
         ctx.fillStyle = isHighlighted || (!activeFocus && !tracedPathIds.size) ? "#FAF7F2" : "#858999";
-        ctx.fillText(n.label, n.x, n.y - n.radius - 5);
+        /* Posicionamento inteligente: alterna texto acima ou abaixo conforme o no
+           Data/Hora: 03/11/2026 21:22 BRT
+        */
+        if (n.labelPos === "bottom") {
+          ctx.textBaseline = "top";
+          ctx.fillText(n.label, n.x, n.y + n.radius + 6);
+        } else {
+          ctx.textBaseline = "bottom";
+          ctx.fillText(n.label, n.x, n.y - n.radius - 5);
+        }
 
         ctx.restore();
       });
